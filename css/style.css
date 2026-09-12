@@ -2,7 +2,7 @@
    HOMEWORK 2: GRIDS AND FLEX
 
    Built from the INST630 tutorial_2 template.
-   Grid places the four page regions. Flexbox
+   Grid organizes the page regions. Flexbox
    arranges the boxes inside each region and
    inside each post card.
    =========================================== */
@@ -64,7 +64,7 @@ ul {
    to 72rem. The header spans the full width so
    its background runs edge to edge. Main and
    footer share the middle column. A second grid
-   inside main places the hero above the feed.
+   inside main places the hero, feed, and about text.
    =========================================== */
 
 .page-layout {
@@ -84,8 +84,9 @@ ul {
   display: grid;
   grid-template-areas:
     "hero"
-    "list";
-  grid-template-rows: auto 1fr;
+    "list"
+    "about";
+  grid-template-rows: auto 1fr auto;
   gap: var(--spacing-md);
   min-width: 0;
 }
@@ -105,6 +106,37 @@ ul {
   grid-area: hero;
   padding: var(--spacing-xl);
   max-width: 48rem;
+}
+
+.demo-note {
+  margin-top: var(--spacing-md);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.about-section {
+  grid-area: about;
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.about-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-section p {
+  max-width: 65ch;
+}
+
+.about-section p + p {
+  margin-top: var(--spacing-md);
+}
+
+.about-section a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .list-section {
@@ -390,6 +422,10 @@ ul {
     padding: var(--spacing-md);
   }
 
+  .about-section {
+    padding: var(--spacing-md);
+  }
+
   .site-footer {
     border-radius: 0;
   }
@@ -422,7 +458,9 @@ a:hover {
   outline-offset: 4px;
 }
 
-.page-content:focus-visible {
+.page-content:focus-visible,
+.list-section:focus-visible,
+.about-section:focus-visible {
   outline-offset: -3px;
 }
 

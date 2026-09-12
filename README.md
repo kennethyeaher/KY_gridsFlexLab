@@ -1,9 +1,16 @@
-# Homework 2: Grids and Flex
+# Design Notes
 
-Responsive page built with plain HTML and CSS for INST630. It recreates the
-`component-compex` post card from the course Figma file, repeats it three
-times, and places the page regions with CSS Grid. The cards sit in a row on
-screens wider than 64rem and stack into a column at 64rem and narrower.
+INST630 Homework 2: Grids and Flex.
+
+A static feed of three short notes about this page's layout, built with
+plain HTML and CSS. The cards adapt the documented `component-compex`
+structure from the course Figma file. They share a row on screens wider
+than 64rem and stack into a column at 64rem and narrower.
+
+The notes cover the shared page frame, the groups inside each card, and
+the use of spacing. Comments are example discussion prompts from named
+demo readers. Likes and saves are illustrative counts. None of these
+counts represent measured use of the project.
 
 Live page: https://kennethyeaher.github.io/KY_gridsFlexLab/
 
@@ -13,8 +20,8 @@ Grid handles the page. `.page-layout` on `body` defines three named areas
 (header, content, footer) on a three column grid. The outer columns are
 flexible gutters and the middle column caps content at 72rem. The header
 spans all three columns so its background reaches the edges. A nested grid
-on `.page-content` places the hero above the list, keeping both inside one
-main landmark. The footer shares the main content width.
+on `.page-content` places the hero, list, and About section inside one main
+landmark. The footer shares the main content width.
 
 Flexbox handles everything inside a region. The nav is a flex row with
 `space-between`. Each card is a flex column, and inside it the image and
@@ -44,7 +51,10 @@ KY_gridsFlexLab/
     style.css       tokens, page grid, flex components, breakpoint
 ```
 
-There is no build step and no JavaScript.
+There is no build step and no JavaScript. Feed and About link to sections
+on the page. View source opens this repository; the About section also
+links to the course Figma reference. Each card contains three comments,
+and its comment count matches those visible examples.
 
 ## Run it locally
 
@@ -63,7 +73,8 @@ check browser zoom at 200% and 400%.
 Press Tab from the top of the page. The first link should become visible
 as "Skip to main content"; Enter should move focus to the main landmark.
 Continue with Tab and Shift+Tab to check the visible focus outlines on
-header and footer links.
+header and footer links. Follow Feed and About to their labeled sections,
+and check the repository and Figma links.
 
 Secondary text uses a darker shared color, and navigation links have a
 minimum height of 2.75rem. These changes support readability and keyboard
@@ -104,7 +115,7 @@ component-compex
 
 The image is a placeholder box with an icon rather than a real photo, since
 the Figma component uses a placeholder too. Colors and fonts are my own
-choices, not pulled from the Figma file. Saved and Profile are still
-placeholder navigation links, and the posts and engagement counts are
-sample content. Reference fidelity and browser behavior need verification
-before submitting a revised live version.
+choices, not pulled from the Figma file. This is a static demonstration;
+comments, likes, and saves have no interactive controls or persistence.
+Reference fidelity and browser behavior need verification before submitting
+a revised live version.

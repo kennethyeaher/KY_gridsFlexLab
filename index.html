@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homework 2: Grids and Flex</title>
+  <title>Design Notes | INST630 Grids and Flex</title>
 
   <!-- External resources: Google Fonts for type, Font Awesome for icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,14 +19,14 @@
   <!-- Header region of the page grid. The nav inside is a flex row. -->
   <header class="site-header">
     <nav class="header-nav">
-      <a class="logo" href="#">
+      <a class="logo" href="#main-content">
         <i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>
-        Grid Lab
+        Design Notes
       </a>
       <ul class="nav-links">
         <li><a href="#feed">Feed</a></li>
-        <li><a href="#">Saved</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="https://github.com/kennethyeaher/KY_gridsFlexLab">View source</a></li>
       </ul>
     </nav>
   </header>
@@ -34,19 +34,20 @@
   <main class="page-content" id="main-content" tabindex="-1">
     <!-- Hero region of the page grid -->
     <div class="hero-section">
-      <h1>Feed layout with CSS Grid and Flexbox</h1>
+      <h1>Notes on layout and reading</h1>
       <p>
-        Three copies of the component-compex card from the INST630 Figma file.
-        The page regions are placed with CSS Grid, the boxes inside each card
-        are arranged with Flexbox, and the cards drop from a row to a single
-        column at 64rem and narrower.
+        Short notes on the layout decisions behind this page, an INST630
+        exercise in CSS Grid and Flexbox.
+      </p>
+      <p class="demo-note" id="demo-note">
+        Comments, likes, and saves are sample data for this static demonstration.
       </p>
     </div>
 
     <!-- List region of the page grid. Each .list-item is one post card. -->
-    <section class="list-section" id="feed" aria-label="Post feed">
+    <section class="list-section" id="feed" aria-label="Design notes" aria-describedby="demo-note" tabindex="-1">
 
-      <article class="list-item post-card">
+      <article class="list-item post-card" aria-labelledby="note-page-frame">
         <!-- main content: image on the left, description column on the right -->
         <div class="main-content">
           <div class="post-image" role="img" aria-label="Placeholder image">
@@ -55,15 +56,15 @@
           <div class="description">
             <div class="post-header">
               <div class="title-date">
-                <h2 class="post-title">Header</h2>
-                <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
+                <h2 class="post-title" id="note-page-frame">A shared page frame</h2>
+                <time class="post-date" datetime="2026-09-12">Sep 12, 2026</time>
               </div>
               <div class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                <span>Author Name</span>
+                <span>Kenneth Yeaher</span>
               </div>
             </div>
-            <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
+            <p class="post-text">The feed and footer share a content width. The introduction uses a shorter line length, and the header background reaches the page edges.</p>
           </div>
         </div>
 
@@ -71,7 +72,7 @@
         <ul class="engagement-bar">
           <li class="engagement-metric">
             <i class="fa-regular fa-comment" aria-hidden="true"></i>
-            <span>2 comments</span>
+            <span>3 comments</span>
           </li>
           <li class="engagement-metric">
             <i class="fa-regular fa-heart" aria-hidden="true"></i>
@@ -89,36 +90,36 @@
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 1
               </span>
-              <span class="comment-time">6m ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
+            <p class="comment-text">Where does the content width stop growing?</p>
           </div>
           <div class="comment">
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 2
               </span>
-              <span class="comment-time">1h ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
+            <p class="comment-text">What happens to the outer gutters on a narrow screen?</p>
           </div>
           <div class="comment">
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 3
               </span>
-              <span class="comment-time">17h ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
+            <p class="comment-text">Does the footer line up with the feed?</p>
           </div>
         </div>
       </article>
 
-      <article class="list-item post-card">
+      <article class="list-item post-card" aria-labelledby="note-grouped-details">
         <div class="main-content">
           <div class="post-image" role="img" aria-label="Placeholder image">
             <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -126,22 +127,22 @@
           <div class="description">
             <div class="post-header">
               <div class="title-date">
-                <h2 class="post-title">Header</h2>
-                <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
+                <h2 class="post-title" id="note-grouped-details">Details that stay together</h2>
+                <time class="post-date" datetime="2026-09-12">Sep 12, 2026</time>
               </div>
               <div class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                <span>Author Name</span>
+                <span>Kenneth Yeaher</span>
               </div>
             </div>
-            <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
+            <p class="post-text">Each card keeps its image, description, and metadata in small groups. Those groups wrap as the available space changes.</p>
           </div>
         </div>
 
         <ul class="engagement-bar">
           <li class="engagement-metric">
             <i class="fa-regular fa-comment" aria-hidden="true"></i>
-            <span>2 comments</span>
+            <span>3 comments</span>
           </li>
           <li class="engagement-metric">
             <i class="fa-regular fa-heart" aria-hidden="true"></i>
@@ -158,36 +159,36 @@
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 1
               </span>
-              <span class="comment-time">6m ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
+            <p class="comment-text">Can a longer author name fit without overlapping the date?</p>
           </div>
           <div class="comment">
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 2
               </span>
-              <span class="comment-time">1h ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
+            <p class="comment-text">How does the card behave when the text is enlarged?</p>
           </div>
           <div class="comment">
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 3
               </span>
-              <span class="comment-time">17h ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
+            <p class="comment-text">Does the reading order still make sense in one column?</p>
           </div>
         </div>
       </article>
 
-      <article class="list-item post-card">
+      <article class="list-item post-card" aria-labelledby="note-spacing">
         <div class="main-content">
           <div class="post-image" role="img" aria-label="Placeholder image">
             <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -195,22 +196,22 @@
           <div class="description">
             <div class="post-header">
               <div class="title-date">
-                <h2 class="post-title">Header</h2>
-                <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
+                <h2 class="post-title" id="note-spacing">Space with a purpose</h2>
+                <time class="post-date" datetime="2026-09-12">Sep 12, 2026</time>
               </div>
               <div class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                <span>Author Name</span>
+                <span>Kenneth Yeaher</span>
               </div>
             </div>
-            <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
+            <p class="post-text">Padding separates a card&#x27;s content from its border. Gaps separate neighboring cards, and margins separate the heading from its introduction.</p>
           </div>
         </div>
 
         <ul class="engagement-bar">
           <li class="engagement-metric">
             <i class="fa-regular fa-comment" aria-hidden="true"></i>
-            <span>2 comments</span>
+            <span>3 comments</span>
           </li>
           <li class="engagement-metric">
             <i class="fa-regular fa-heart" aria-hidden="true"></i>
@@ -227,35 +228,52 @@
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 1
               </span>
-              <span class="comment-time">6m ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
+            <p class="comment-text">Is the space inside the card different from the space between cards?</p>
           </div>
           <div class="comment">
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 2
               </span>
-              <span class="comment-time">1h ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
+            <p class="comment-text">Do the dividers make each group easy to identify?</p>
           </div>
           <div class="comment">
             <div class="comment-header">
               <span class="author">
                 <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-                Author Name
+                Demo reader 3
               </span>
-              <span class="comment-time">17h ago</span>
+              <span class="comment-time">Sample</span>
             </div>
-            <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
+            <p class="comment-text">Can the same spacing values work across all three cards?</p>
           </div>
         </div>
       </article>
 
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title" tabindex="-1">
+      <h2 id="about-title">About this project</h2>
+      <p>
+        Design Notes is an INST630 Homework 2 project by Kenneth Yeaher,
+        based on the <code>component-compex</code> card in the
+        <a href="https://www.figma.com/design/biwANCicnvSn9fQG3wOrRD/INST630-Figma-Demos--2026--Kunesh-?m=dev">course Figma demos</a>.
+        The same nested card structure appears three times, with original
+        notes about the page and sample discussion prompts.
+      </p>
+      <p>
+        CSS Grid places the page regions, and Flexbox arranges each card's
+        contents. Cards share a row above 64rem and stack at 64rem and below.
+        <a href="https://github.com/kennethyeaher/KY_gridsFlexLab">Browse the HTML, CSS, and README</a>
+        for the implementation and browser-check instructions.
+      </p>
     </section>
   </main>
 
@@ -263,7 +281,7 @@
   <footer class="site-footer">
     <p>Kenneth Yeaher, INST630 Homework 2</p>
     <ul class="footer-links">
-      <li><a href="https://github.com/kennethyeaher" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+      <li><a href="https://github.com/kennethyeaher/KY_gridsFlexLab" aria-label="Project source on GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
       <li><a href="https://kennethyeaher.github.io" aria-label="Portfolio"><i class="fa-solid fa-globe" aria-hidden="true"></i></a></li>
     </ul>
   </footer>
