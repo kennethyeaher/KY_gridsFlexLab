@@ -1,0 +1,379 @@
+/* ===========================================
+   HOMEWORK 2: GRIDS AND FLEX
+
+   Built from the INST630 tutorial_2 template.
+   Grid places the four page regions. Flexbox
+   arranges the boxes inside each region and
+   inside each post card.
+   =========================================== */
+
+/* External fonts (Space Grotesk for display, DM Sans for body) and
+   Font Awesome are linked from the head of index.html so the browser
+   can preconnect to them before this stylesheet is parsed. */
+
+:root {
+  /* Spacing scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Colors */
+  --color-bg: hsl(40, 30%, 97%);
+  --color-surface: hsl(0, 0%, 100%);
+  --color-surface-muted: hsl(40, 15%, 92%);
+  --color-text: hsl(30, 15%, 15%);
+  --color-text-muted: hsl(30, 8%, 48%);
+  --color-accent: hsl(160, 60%, 32%);
+  --color-border: hsla(30, 15%, 15%, 0.12);
+
+  /* Typography */
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+
+  /* Layout */
+  --content-max: 72rem;
+  --card-radius: 0.5rem;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ===========================================
+   TASK 1: PAGE GRID STRUCTURE
+
+   Three columns. The outer two are flexible
+   gutters and the middle one holds content up
+   to 72rem. The header spans the full width so
+   its background runs edge to edge. Hero, list,
+   and footer sit in the middle column, which
+   keeps the footer at content width.
+   =========================================== */
+
+.page-layout {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    ".      hero   .     "
+    ".      list   .     "
+    ".      footer .     ";
+  grid-template-columns: 1fr minmax(0, var(--content-max)) 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  gap: var(--spacing-md);
+}
+
+/* ===========================================
+   TASK 2: ASSIGN GRID AREAS
+   =========================================== */
+
+.site-header {
+  grid-area: header;
+  background: var(--color-surface);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-section {
+  grid-area: hero;
+  padding: var(--spacing-xl);
+  max-width: 48rem;
+}
+
+.list-section {
+  grid-area: list;
+  padding: var(--spacing-lg);
+}
+
+.site-footer {
+  grid-area: footer;
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--spacing-lg);
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+
+/* ===========================================
+   TASK 3: FLEXBOX FOR COMPONENTS
+
+   Every row or column inside a grid region is
+   a flex container. Grid owns the page, flex
+   owns the relationships inside each box.
+   =========================================== */
+
+/* Header: logo on the left, links pushed to the right */
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+/* Footer: caption on the left, icon links on the right */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--spacing-md);
+  font-size: 1.25rem;
+}
+
+.footer-links a {
+  color: var(--color-bg);
+}
+
+/* List: the three cards sit in one row and share the width equally */
+.list-section {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-lg);
+  align-items: stretch;
+}
+
+.list-item {
+  background: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-border);
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* -------------------------------------------
+   Post card. The box nesting follows the
+   Figma layer tree for component-compex:
+
+   .post-card (column)
+     .main-content (row)
+       .post-image
+       .description (column)
+         .post-header (row)
+           .title-date (column)
+           .author (row)
+         .post-text
+     .engagement-bar (row)
+       .engagement-metric (row) x3
+     .comment-section (column)
+       .comment (column) x3
+         .comment-header (row)
+         .comment-text
+   ------------------------------------------- */
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Main content: fixed image box, description takes the rest */
+.main-content {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.post-image {
+  flex: 0 0 5rem;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-muted);
+  border-radius: var(--spacing-xs);
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Header row: title and date stack on the left, author sits on the right */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.title-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.post-date,
+.comment-time {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.post-text {
+  font-size: 0.9375rem;
+}
+
+/* Engagement bar: three metrics in a row, spaced across the card */
+.engagement-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.engagement-metric {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.engagement-metric i {
+  color: var(--color-accent);
+}
+
+/* Comment section: comments stack with a divider above the block */
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.comment-text {
+  font-size: 0.875rem;
+}
+
+/* ===========================================
+   TASK 4: RESPONSIVE BREAKPOINT
+
+   Under 48rem the grid collapses to one column
+   and every region stacks. The cards switch
+   from a row to a column and each takes the
+   full width.
+   =========================================== */
+
+@media (max-width: 48rem) {
+  .page-layout {
+    grid-template-areas:
+      "header"
+      "hero"
+      "list"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding: var(--spacing-lg);
+  }
+
+  .list-section {
+    flex-direction: column;
+    padding: var(--spacing-md);
+  }
+
+  .list-item {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .site-footer {
+    border-radius: 0;
+  }
+}
+
+/* ===========================================
+   TYPOGRAPHY (provided)
+   =========================================== */
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
