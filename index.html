@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-layout">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Header region of the page grid. The nav inside is a flex row. -->
   <header class="site-header">
@@ -30,231 +31,233 @@
     </nav>
   </header>
 
-  <!-- Hero region of the page grid -->
-  <main class="hero-section">
-    <h1>Feed layout with CSS Grid and Flexbox</h1>
-    <p>
-      Three copies of the component-compex card from the INST630 Figma file.
-      The page regions are placed with CSS Grid, the boxes inside each card
-      are arranged with Flexbox, and the cards drop from a row to a single
-      column under 48rem.
-    </p>
+  <main class="page-content" id="main-content" tabindex="-1">
+    <!-- Hero region of the page grid -->
+    <div class="hero-section">
+      <h1>Feed layout with CSS Grid and Flexbox</h1>
+      <p>
+        Three copies of the component-compex card from the INST630 Figma file.
+        The page regions are placed with CSS Grid, the boxes inside each card
+        are arranged with Flexbox, and the cards drop from a row to a single
+        column at 64rem and narrower.
+      </p>
+    </div>
+
+    <!-- List region of the page grid. Each .list-item is one post card. -->
+    <section class="list-section" id="feed" aria-label="Post feed">
+
+      <article class="list-item post-card">
+        <!-- main content: image on the left, description column on the right -->
+        <div class="main-content">
+          <div class="post-image" role="img" aria-label="Placeholder image">
+            <i class="fa-regular fa-image" aria-hidden="true"></i>
+          </div>
+          <div class="description">
+            <div class="post-header">
+              <div class="title-date">
+                <h2 class="post-title">Header</h2>
+                <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
+              </div>
+              <div class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                <span>Author Name</span>
+              </div>
+            </div>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
+          </div>
+        </div>
+
+        <!-- engagement bar: three metrics side by side -->
+        <ul class="engagement-bar">
+          <li class="engagement-metric">
+            <i class="fa-regular fa-comment" aria-hidden="true"></i>
+            <span>2 comments</span>
+          </li>
+          <li class="engagement-metric">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            <span>10 likes</span>
+          </li>
+          <li class="engagement-metric">
+            <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+            <span>3 saves</span>
+          </li>
+        </ul>
+
+        <!-- comment section: stacked comments, each with a header row and text -->
+        <div class="comment-section">
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">6m ago</span>
+            </div>
+            <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
+          </div>
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">1h ago</span>
+            </div>
+            <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
+          </div>
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">17h ago</span>
+            </div>
+            <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="list-item post-card">
+        <div class="main-content">
+          <div class="post-image" role="img" aria-label="Placeholder image">
+            <i class="fa-regular fa-image" aria-hidden="true"></i>
+          </div>
+          <div class="description">
+            <div class="post-header">
+              <div class="title-date">
+                <h2 class="post-title">Header</h2>
+                <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
+              </div>
+              <div class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                <span>Author Name</span>
+              </div>
+            </div>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
+          </div>
+        </div>
+
+        <ul class="engagement-bar">
+          <li class="engagement-metric">
+            <i class="fa-regular fa-comment" aria-hidden="true"></i>
+            <span>2 comments</span>
+          </li>
+          <li class="engagement-metric">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            <span>10 likes</span>
+          </li>
+          <li class="engagement-metric">
+            <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+            <span>3 saves</span>
+          </li>
+        </ul>
+
+        <div class="comment-section">
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">6m ago</span>
+            </div>
+            <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
+          </div>
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">1h ago</span>
+            </div>
+            <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
+          </div>
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">17h ago</span>
+            </div>
+            <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="list-item post-card">
+        <div class="main-content">
+          <div class="post-image" role="img" aria-label="Placeholder image">
+            <i class="fa-regular fa-image" aria-hidden="true"></i>
+          </div>
+          <div class="description">
+            <div class="post-header">
+              <div class="title-date">
+                <h2 class="post-title">Header</h2>
+                <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
+              </div>
+              <div class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                <span>Author Name</span>
+              </div>
+            </div>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
+          </div>
+        </div>
+
+        <ul class="engagement-bar">
+          <li class="engagement-metric">
+            <i class="fa-regular fa-comment" aria-hidden="true"></i>
+            <span>2 comments</span>
+          </li>
+          <li class="engagement-metric">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            <span>10 likes</span>
+          </li>
+          <li class="engagement-metric">
+            <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+            <span>3 saves</span>
+          </li>
+        </ul>
+
+        <div class="comment-section">
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">6m ago</span>
+            </div>
+            <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
+          </div>
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">1h ago</span>
+            </div>
+            <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
+          </div>
+          <div class="comment">
+            <div class="comment-header">
+              <span class="author">
+                <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+                Author Name
+              </span>
+              <span class="comment-time">17h ago</span>
+            </div>
+            <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
+          </div>
+        </div>
+      </article>
+
+    </section>
   </main>
-
-  <!-- List region of the page grid. Each .list-item is one post card. -->
-  <section class="list-section" id="feed">
-
-    <article class="list-item post-card">
-      <!-- main content: image on the left, description column on the right -->
-      <div class="main-content">
-        <div class="post-image" role="img" aria-label="Placeholder image">
-          <i class="fa-regular fa-image" aria-hidden="true"></i>
-        </div>
-        <div class="description">
-          <div class="post-header">
-            <div class="title-date">
-              <h2 class="post-title">Header</h2>
-              <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
-            </div>
-            <div class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              <span>Author Name</span>
-            </div>
-          </div>
-          <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
-        </div>
-      </div>
-
-      <!-- engagement bar: three metrics side by side -->
-      <ul class="engagement-bar">
-        <li class="engagement-metric">
-          <i class="fa-regular fa-comment" aria-hidden="true"></i>
-          <span>2 comments</span>
-        </li>
-        <li class="engagement-metric">
-          <i class="fa-regular fa-heart" aria-hidden="true"></i>
-          <span>10 likes</span>
-        </li>
-        <li class="engagement-metric">
-          <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
-          <span>3 saves</span>
-        </li>
-      </ul>
-
-      <!-- comment section: stacked comments, each with a header row and text -->
-      <div class="comment-section">
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">6m ago</span>
-          </div>
-          <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
-        </div>
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">1h ago</span>
-          </div>
-          <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
-        </div>
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">17h ago</span>
-          </div>
-          <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="list-item post-card">
-      <div class="main-content">
-        <div class="post-image" role="img" aria-label="Placeholder image">
-          <i class="fa-regular fa-image" aria-hidden="true"></i>
-        </div>
-        <div class="description">
-          <div class="post-header">
-            <div class="title-date">
-              <h2 class="post-title">Header</h2>
-              <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
-            </div>
-            <div class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              <span>Author Name</span>
-            </div>
-          </div>
-          <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
-        </div>
-      </div>
-
-      <ul class="engagement-bar">
-        <li class="engagement-metric">
-          <i class="fa-regular fa-comment" aria-hidden="true"></i>
-          <span>2 comments</span>
-        </li>
-        <li class="engagement-metric">
-          <i class="fa-regular fa-heart" aria-hidden="true"></i>
-          <span>10 likes</span>
-        </li>
-        <li class="engagement-metric">
-          <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
-          <span>3 saves</span>
-        </li>
-      </ul>
-
-      <div class="comment-section">
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">6m ago</span>
-          </div>
-          <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
-        </div>
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">1h ago</span>
-          </div>
-          <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
-        </div>
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">17h ago</span>
-          </div>
-          <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="list-item post-card">
-      <div class="main-content">
-        <div class="post-image" role="img" aria-label="Placeholder image">
-          <i class="fa-regular fa-image" aria-hidden="true"></i>
-        </div>
-        <div class="description">
-          <div class="post-header">
-            <div class="title-date">
-              <h2 class="post-title">Header</h2>
-              <time class="post-date" datetime="2025-09-18">Sep 18, 2025</time>
-            </div>
-            <div class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              <span>Author Name</span>
-            </div>
-          </div>
-          <p class="post-text">Lorem ipsum dolor sit amet consectetur. Vel elementum ipsum.</p>
-        </div>
-      </div>
-
-      <ul class="engagement-bar">
-        <li class="engagement-metric">
-          <i class="fa-regular fa-comment" aria-hidden="true"></i>
-          <span>2 comments</span>
-        </li>
-        <li class="engagement-metric">
-          <i class="fa-regular fa-heart" aria-hidden="true"></i>
-          <span>10 likes</span>
-        </li>
-        <li class="engagement-metric">
-          <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
-          <span>3 saves</span>
-        </li>
-      </ul>
-
-      <div class="comment-section">
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">6m ago</span>
-          </div>
-          <p class="comment-text">Enim orci sapien laoreet risus dictumst orci diam mauris.</p>
-        </div>
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">1h ago</span>
-          </div>
-          <p class="comment-text">Turpis sed leo amet arcu viverra.</p>
-        </div>
-        <div class="comment">
-          <div class="comment-header">
-            <span class="author">
-              <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
-              Author Name
-            </span>
-            <span class="comment-time">17h ago</span>
-          </div>
-          <p class="comment-text">Bibendum pulvinar a congue auctor velit massa ultricies.</p>
-        </div>
-      </div>
-    </article>
-
-  </section>
 
   <!-- Footer region of the page grid -->
   <footer class="site-footer">

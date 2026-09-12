@@ -3,28 +3,32 @@
 Responsive page built with plain HTML and CSS for INST630. It recreates the
 `component-compex` post card from the course Figma file, repeats it three
 times, and places the page regions with CSS Grid. The cards sit in a row on
-wide screens and stack into a column under 48rem.
+screens wider than 64rem and stack into a column at 64rem and narrower.
 
 Live page: https://kennethyeaher.github.io/KY_gridsFlexLab/
 
 ## What it demonstrates
 
-Grid handles the page. `.page-layout` on `body` defines four named areas
-(header, hero, list, footer) on a three column grid. The outer columns are
-flexible gutters and the middle column caps content at 72rem, so the footer
-never runs wider than the content above it. The header spans all three
-columns so its background reaches the edges.
+Grid handles the page. `.page-layout` on `body` defines three named areas
+(header, content, footer) on a three column grid. The outer columns are
+flexible gutters and the middle column caps content at 72rem. The header
+spans all three columns so its background reaches the edges. A nested grid
+on `.page-content` places the hero above the list, keeping both inside one
+main landmark. The footer shares the main content width.
 
 Flexbox handles everything inside a region. The nav is a flex row with
 `space-between`. Each card is a flex column, and inside it the image and
 description form a row, the title and author form a row, the three
-engagement metrics form a row, and the comments stack as a column. Every
-nesting level in the CSS mirrors the layer tree in Figma.
+engagement metrics form a row, and the comments stack as a column. The card
+groups retain the documented Figma layer tree. Rows can wrap when their
+contents need more room, including long names or enlarged text.
 
-The box model shows up in the cards: a 1px border, 1.5rem of padding, the
-content boxes inside, and the gap between cards standing in for margin.
-`box-sizing: border-box` is set on everything so padding and borders count
-toward declared widths.
+The box model shows up in the cards: a 1px border, 1.5rem of desktop padding
+(1rem in the stacked layout), and the content boxes inside. The heading uses
+`margin-bottom` to separate it from the introduction, and `margin: 0 auto`
+centers the header navigation. Flex `gap` separately controls space between
+cards and between their inner groups; it is not part of a card's margin.
+`box-sizing: border-box` makes declared widths include padding and borders.
 
 External resources are two Google Fonts (Space Grotesk and DM Sans) and
 Font Awesome 6 for the icons in the header, cards, and footer.
@@ -48,8 +52,23 @@ Clone the repo and open `index.html` in a browser. The fonts and icons load
 from their CDNs, so an internet connection is needed for them to appear.
 Without one the layout still works with the system font fallbacks.
 
-To check the responsive behavior, resize the window below 768px (48rem) or
-use the device toolbar in the browser dev tools.
+## Responsive and keyboard checks
+
+Use the browser's responsive tools at 320px, 390px, 768px, 1024px, 1025px,
+and 1440px. With the default 16px browser font size, 64rem equals 1024px:
+three cards should share one row above that width, and stack at or below it.
+Check for overlap, clipped text, and unwanted horizontal scrolling. Also
+check browser zoom at 200% and 400%.
+
+Press Tab from the top of the page. The first link should become visible
+as "Skip to main content"; Enter should move focus to the main landmark.
+Continue with Tab and Shift+Tab to check the visible focus outlines on
+header and footer links.
+
+Secondary text uses a darker shared color, and navigation links have a
+minimum height of 2.75rem. These changes support readability and keyboard
+use; they do not establish a complete accessibility audit. The checks above
+are a manual verification procedure, not a record of completed browser tests.
 
 ## Publish with GitHub Pages
 
@@ -85,5 +104,7 @@ component-compex
 
 The image is a placeholder box with an icon rather than a real photo, since
 the Figma component uses a placeholder too. Colors and fonts are my own
-choices, not pulled from the Figma file. The breakpoint is a single jump at
-48rem, so at tablet widths the three cards get narrow before they stack.
+choices, not pulled from the Figma file. Saved and Profile are still
+placeholder navigation links, and the posts and engagement counts are
+sample content. Reference fidelity and browser behavior need verification
+before submitting a revised live version.

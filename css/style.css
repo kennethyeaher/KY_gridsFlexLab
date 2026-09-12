@@ -24,8 +24,8 @@
   --color-surface: hsl(0, 0%, 100%);
   --color-surface-muted: hsl(40, 15%, 92%);
   --color-text: hsl(30, 15%, 15%);
-  --color-text-muted: hsl(30, 8%, 48%);
-  --color-accent: hsl(160, 60%, 32%);
+  --color-text-muted: hsl(30, 8%, 40%);
+  --color-accent: hsl(160, 60%, 30%);
   --color-border: hsla(30, 15%, 15%, 0.12);
 
   /* Typography */
@@ -48,6 +48,7 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 ul {
@@ -61,22 +62,32 @@ ul {
    Three columns. The outer two are flexible
    gutters and the middle one holds content up
    to 72rem. The header spans the full width so
-   its background runs edge to edge. Hero, list,
-   and footer sit in the middle column, which
-   keeps the footer at content width.
+   its background runs edge to edge. Main and
+   footer share the middle column. A second grid
+   inside main places the hero above the feed.
    =========================================== */
 
 .page-layout {
   display: grid;
   grid-template-areas:
     "header header header"
-    ".      hero   .     "
-    ".      list   .     "
+    ".      content .    "
     ".      footer .     ";
   grid-template-columns: 1fr minmax(0, var(--content-max)) 1fr;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   gap: var(--spacing-md);
+}
+
+.page-content {
+  grid-area: content;
+  display: grid;
+  grid-template-areas:
+    "hero"
+    "list";
+  grid-template-rows: auto 1fr;
+  gap: var(--spacing-md);
+  min-width: 0;
 }
 
 /* ===========================================
@@ -122,6 +133,8 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-lg);
   max-width: var(--content-max);
   margin: 0 auto;
 }
@@ -138,7 +151,22 @@ ul {
 
 .nav-links {
   display: flex;
-  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-md);
+}
+
+.logo,
+.nav-links a,
+.footer-links a {
+  min-height: 2.75rem;
+}
+
+.nav-links a,
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs);
 }
 
 /* Footer: caption on the left, icon links on the right */
@@ -157,6 +185,7 @@ ul {
 }
 
 .footer-links a {
+  min-width: 2.75rem;
   color: var(--color-bg);
 }
 
@@ -206,6 +235,7 @@ ul {
 /* Main content: fixed image box, description takes the rest */
 .main-content {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-md);
   align-items: flex-start;
 }
@@ -227,19 +257,21 @@ ul {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
-  flex: 1 1 auto;
+  flex: 1 1 8rem;
   min-width: 0;
 }
 
 /* Header row: title and date stack on the left, author sits on the right */
 .post-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   gap: var(--spacing-sm);
 }
 
 .title-date {
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -264,7 +296,11 @@ ul {
   gap: var(--spacing-xs);
   font-size: 0.75rem;
   color: var(--color-text-muted);
-  white-space: nowrap;
+  min-width: 0;
+}
+
+.author i {
+  flex-shrink: 0;
 }
 
 .post-text {
@@ -310,6 +346,7 @@ ul {
 
 .comment-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: var(--spacing-sm);
@@ -322,18 +359,18 @@ ul {
 /* ===========================================
    TASK 4: RESPONSIVE BREAKPOINT
 
-   Under 48rem the grid collapses to one column
-   and every region stacks. The cards switch
-   from a row to a column and each takes the
-   full width.
+   At 64rem and narrower, the page grid uses one
+   column and the cards stack. This gives the
+   image and metadata room before three cards
+   become too narrow. Flex wrapping also handles
+   long names and enlarged text inside a card.
    =========================================== */
 
-@media (max-width: 48rem) {
+@media (max-width: 64rem) {
   .page-layout {
     grid-template-areas:
       "header"
-      "hero"
-      "list"
+      "content"
       "footer";
     grid-template-columns: 1fr;
   }
@@ -350,6 +387,7 @@ ul {
   .list-item {
     flex: 1 1 auto;
     width: 100%;
+    padding: var(--spacing-md);
   }
 
   .site-footer {
@@ -363,7 +401,7 @@ ul {
 
 h1 {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: clamp(1.875rem, 1.25rem + 2vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
@@ -376,4 +414,33 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Keyboard focus stays visible against both light and dark surfaces. */
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+.page-content:focus-visible {
+  outline-offset: -3px;
+}
+
+/* Keep the skip link outside the grid flow until keyboard focus reveals it. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: var(--spacing-md);
+  z-index: 1;
+  max-width: calc(100% - 2 * var(--spacing-md));
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid currentColor;
+  border-radius: var(--spacing-xs);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(var(--spacing-sm));
 }
