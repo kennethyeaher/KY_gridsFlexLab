@@ -66,10 +66,29 @@ Calculated secondary-text contrast is 5.64:1 on white and 5.32:1 on the
 warm page background. These are color calculations, not a complete
 accessibility assessment.
 
-Desktop and mobile screenshots, keyboard interaction, zoom behavior, and
-comparison with the source Figma component still need browser verification.
-The manual procedure below describes those checks; there are no measured
+Two desktop Safari screenshots reviewed on September 12, 2026 show the
+local page with its header, three cards in a row, About section, and expanded
+layout guide. The visible text, icons, and diagrams render without obvious
+overlap in the areas shown. The screenshots do not establish an exact CSS
+viewport width, show the entire page, or demonstrate keyboard interaction.
+
+Mobile layout, both sides of the breakpoint, zoom behavior, keyboard use,
+and comparison with the source Figma component remain unverified. The
+manual procedure below describes those checks. There are no measured
 usability or performance results to report.
+
+### Homework requirement coverage
+
+| Requirement | Current evidence | Remaining check |
+| --- | --- | --- |
+| Use a component from the course Figma file | The documented choice is `component-compex`; the three cards preserve its recorded element nesting. | Compare with the actual selected Figma component and starter material. |
+| Build nested boxes and preserve their visual relationships | The HTML groups the image, description, metadata, engagement row, and comments. | Confirm reference fidelity at the intended sizes. |
+| Repeat the component three times in a large-screen row and small-screen column | Three article elements are present, the desktop row is visible in the screenshots, and CSS switches to a column at 64rem. | Check the rendered mobile column and breakpoint boundaries. |
+| Include a header and footer organized with CSS Grid | Both are present in the HTML and assigned named grid areas. | Review the entire page, including the actual footer, at desktop and mobile widths. |
+| Demonstrate Flexbox, Grid, nesting, and the box model | The source and layout guide identify flex groups, grid regions, borders, padding, margins, and gaps. | Inspect the applied styles in browser developer tools. |
+| Include external resources | The HTML links Google Fonts and Font Awesome; icons appear in the screenshots. | Check the font and icon requests in the browser. |
+| Test in a browser and submit an inspectable live link | Desktop local rendering has screenshot evidence; the repository and Pages URLs are documented. | Finish interaction and responsive checks, then verify the published revision. |
+
 
 ## Project structure
 
