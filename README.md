@@ -12,7 +12,9 @@ the use of spacing. Comments are example discussion prompts from named
 demo readers. Likes and saves are illustrative counts. None of these
 counts represent measured use of the project.
 
-Live page: https://kennethyeaher.github.io/KY_gridsFlexLab/
+Live page: [Design Notes](https://kennethyeaher.github.io/KY_gridsFlexLab/)
+
+Inspectable source: [HTML, CSS, and project documentation](https://github.com/kennethyeaher/KY_gridsFlexLab)
 
 ## What it demonstrates
 
@@ -72,23 +74,37 @@ layout guide. The visible text, icons, and diagrams render without obvious
 overlap in the areas shown. The screenshots do not establish an exact CSS
 viewport width, show the entire page, or demonstrate keyboard interaction.
 
-Mobile layout, both sides of the breakpoint, zoom behavior, keyboard use,
-and comparison with the source Figma component remain unverified. The
-manual procedure below describes those checks. There are no measured
-usability or performance results to report.
+Three mobile Safari screenshots reviewed the same day show the published
+page's wrapped header navigation, a card fitting the screen, About text,
+the expanded layout guide, and the actual footer. Text and diagram groups
+fit their visible containers without obvious overlap. The screenshots
+cover selected portions of the page, not every card or an exact CSS
+viewport width, and do not establish that every control works.
+
+A screenshot of the course Figma Components page shows `component-compex`
+with an image beside its description, an engagement row, and three stacked
+comments. These main groups match the implementation. The project adds
+original text, its own font and color choices, and responsive wrapping. The
+screenshot does not establish exact dimensions or a detailed comparison of
+every layer.
+
+GitHub Pages successfully deployed the page reviewed on mobile from the
+`main` branch and root folder. Both sides of the breakpoint, zoom behavior,
+keyboard and screen-reader use, link activation, and detailed reference
+fidelity remain unverified. The manual procedure below describes those
+checks. There are no measured usability or performance results to report.
 
 ### Homework requirement coverage
 
 | Requirement | Current evidence | Remaining check |
 | --- | --- | --- |
-| Use a component from the course Figma file | The documented choice is `component-compex`; the three cards preserve its recorded element nesting. | Compare with the actual selected Figma component and starter material. |
-| Build nested boxes and preserve their visual relationships | The HTML groups the image, description, metadata, engagement row, and comments. | Confirm reference fidelity at the intended sizes. |
-| Repeat the component three times in a large-screen row and small-screen column | Three article elements are present, the desktop row is visible in the screenshots, and CSS switches to a column at 64rem. | Check the rendered mobile column and breakpoint boundaries. |
-| Include a header and footer organized with CSS Grid | Both are present in the HTML and assigned named grid areas. | Review the entire page, including the actual footer, at desktop and mobile widths. |
+| Use a component from the course Figma file | The Figma screenshot identifies `component-compex` and shows the main groups used in each card. | Compare the detailed layers and starter material. |
+| Build nested boxes and preserve their visual relationships | The HTML groups the image, description, metadata, engagement row, and comments; the Figma screenshot supports these main relationships. | Confirm detailed reference fidelity at the intended sizes. |
+| Repeat the component three times in a large-screen row and small-screen column | Three article elements are present, the desktop row is visible, and CSS switches to a column at 64rem. A mobile card fits the screen in the supplied view. | Review all three cards on mobile and test both breakpoint boundaries. |
+| Include a header and footer organized with CSS Grid | Both are assigned named grid areas. The header appears in desktop and mobile screenshots, and the actual footer appears on mobile. | Review the full desktop footer and widths not covered by the screenshots. |
 | Demonstrate Flexbox, Grid, nesting, and the box model | The source and layout guide identify flex groups, grid regions, borders, padding, margins, and gaps. | Inspect the applied styles in browser developer tools. |
-| Include external resources | The HTML links Google Fonts and Font Awesome; icons appear in the screenshots. | Check the font and icon requests in the browser. |
-| Test in a browser and submit an inspectable live link | Desktop local rendering has screenshot evidence; the repository and Pages URLs are documented. | Finish interaction and responsive checks, then verify the published revision. |
-
+| Include external resources | The HTML links Google Fonts and Font Awesome; icons appear in desktop and mobile screenshots. | Check the font and icon requests in the browser. |
+| Test in a browser and submit an inspectable live link | Desktop local and published mobile rendering have screenshot evidence. GitHub Pages deployment succeeded, and the live page links to the source repository. | Finish link, keyboard, zoom, and remaining responsive checks. |
 
 ## Project structure
 
@@ -137,11 +153,14 @@ are a manual verification procedure, not a record of completed browser tests.
 
 ## Publish with GitHub Pages
 
-1. Push the repo to GitHub.
-2. Open Settings, then Pages.
-3. Set the source to the `main` branch, root folder, and save.
-4. The page appears at `https://<username>.github.io/KY_gridsFlexLab/`
-   after a minute or two.
+Pages is already configured for this repository: deploy from the `main`
+branch and `/ (root)` folder.
+
+After reviewing and committing a change, run `git push origin main`.
+GitHub's `pages build and deployment` workflow publishes it. Wait for that
+workflow to succeed, then refresh the
+[live page](https://kennethyeaher.github.io/KY_gridsFlexLab/) and check the
+changed content. No local build step is required.
 
 ## Component reference
 
@@ -171,5 +190,7 @@ The image is a placeholder box with an icon rather than a real photo, since
 the Figma component uses a placeholder too. Colors and fonts are my own
 choices, not pulled from the Figma file. This is a static demonstration;
 comments, likes, and saves have no interactive controls or persistence.
-Reference fidelity and browser behavior need verification before submitting
-a revised live version.
+Visual review covers the supplied desktop and mobile screenshots and the
+main Figma component groups. It is not a complete accessibility audit or a
+test of every screen size and interaction. The remaining checks are listed
+above.
