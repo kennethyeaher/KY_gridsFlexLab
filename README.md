@@ -40,15 +40,46 @@ cards and between their inner groups; it is not part of a card's margin.
 External resources are two Google Fonts (Space Grotesk and DM Sans) and
 Font Awesome 6 for the icons in the header, cards, and footer.
 
+## Design decisions
+
+The page keeps the warm background, green links, Space Grotesk headings,
+and DM Sans body text from the initial exercise. Shared spacing and text
+sizes keep the repeated cards consistent.
+
+| Decision | Reason and implementation |
+| --- | --- |
+| Three cards, with one stacking breakpoint | The homework asks for a row at large sizes and a column at small ones. The 64rem breakpoint gives the nested card groups more room before they stack. |
+| Short introduction, wider feed | The introduction caps at 48rem; the main content and footer share a grid track capped at 72rem. |
+| Clear text hierarchy | The main heading scales from 2rem to 3rem. Card titles use 1.25rem, post text 1rem, and shared smaller sizes distinguish comments and metadata. |
+| Explicit sample activity | Demo readers and labeled sample counts make the static feed's purpose clear. Each comment count matches the three comments shown. |
+| An optional layout guide | Native HTML details/summary reveals captioned schematics for the page grid and card nesting. The diagrams follow the page's stacking breakpoint. |
+
+The guide's captions describe the groups in text. Its duplicate visual
+labels are hidden from assistive technology. The guide uses HTML and CSS;
+no scripting or new external resources are required.
+
+### Implementation evidence and remaining checks
+
+Source checks confirm three cards with matching element nesting, valid
+named anchor targets and accessible labels, and three comments per card.
+Calculated secondary-text contrast is 5.64:1 on white and 5.32:1 on the
+warm page background. These are color calculations, not a complete
+accessibility assessment.
+
+Desktop and mobile screenshots, keyboard interaction, zoom behavior, and
+comparison with the source Figma component still need browser verification.
+The manual procedure below describes those checks; there are no measured
+usability or performance results to report.
+
 ## Project structure
 
 ```
 KY_gridsFlexLab/
   README.md
   .gitignore
-  index.html        page markup, three copies of the card
+  index.html        page, three cards, and expandable layout guide
   css/
-    style.css       tokens, page grid, flex components, breakpoint
+    style.css       shared styles, grids, flex groups, and breakpoint
 ```
 
 There is no build step and no JavaScript. Feed and About link to sections
@@ -74,7 +105,11 @@ Press Tab from the top of the page. The first link should become visible
 as "Skip to main content"; Enter should move focus to the main landmark.
 Continue with Tab and Shift+Tab to check the visible focus outlines on
 header and footer links. Follow Feed and About to their labeled sections,
-and check the repository and Figma links.
+and check the repository and Figma links. Tab to "Explore the layout" and
+use Enter or Space to open and close it. Confirm that the text captions are
+available to a screen reader and the duplicated schematic labels are skipped.
+Open the guide at both sides of the 64rem breakpoint and check that its
+page map stacks with the feed.
 
 Secondary text uses a darker shared color, and navigation links have a
 minimum height of 2.75rem. These changes support readability and keyboard

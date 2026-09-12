@@ -274,6 +274,73 @@
         <a href="https://github.com/kennethyeaher/KY_gridsFlexLab">Browse the HTML, CSS, and README</a>
         for the implementation and browser-check instructions.
       </p>
+
+      <details class="layout-guide">
+        <summary>Explore the layout</summary>
+        <div class="layout-guide-content">
+          <div class="layout-maps">
+            <figure>
+              <figcaption>
+                <strong>Page regions: Grid</strong>
+                <span>The header spans the page. Main holds the introduction, three-card feed, and About section; the footer follows.</span>
+              </figcaption>
+              <div class="map-page" aria-hidden="true">
+                <div class="map-box map-header">Header</div>
+                <div class="map-main">
+                  <span>Main</span>
+                  <div class="map-box">Introduction</div>
+                  <div class="map-box">
+                    <span>Feed</span>
+                    <div class="map-feed">
+                      <span class="map-box">Card</span>
+                      <span class="map-box">Card</span>
+                      <span class="map-box">Card</span>
+                    </div>
+                  </div>
+                  <div class="map-box">About</div>
+                </div>
+                <div class="map-box map-footer">Footer</div>
+              </div>
+            </figure>
+
+            <figure>
+              <figcaption>
+                <strong>Card groups: Flexbox</strong>
+                <span>An image sits beside the description. The engagement row follows, with a separate section for three stacked comments. Groups can wrap when space is tight.</span>
+              </figcaption>
+              <div class="map-card" aria-hidden="true">
+                <div class="map-row">
+                  <div class="map-box map-image">Image</div>
+                  <div class="map-box map-description">
+                    <div class="map-row">
+                      <span>Title / date</span>
+                      <span>Author</span>
+                    </div>
+                    <span>Post text</span>
+                  </div>
+                </div>
+                <div class="map-box map-row">
+                  <span>Comments</span>
+                  <span>Likes</span>
+                  <span>Saves</span>
+                </div>
+                <div class="map-box map-comments">
+                  <span>Comment section</span>
+                  <div class="map-box">Comment</div>
+                  <div class="map-box">Comment</div>
+                  <div class="map-box">Comment</div>
+                </div>
+              </div>
+            </figure>
+          </div>
+          <p class="box-model-note">
+            <strong>Space around the content.</strong> Each card has a border
+            and inner padding. The heading uses a bottom margin, while Flexbox
+            gaps set the distance between cards. These schematics show the
+            groups; the full nesting is documented in the README.
+          </p>
+        </div>
+      </details>
     </section>
   </main>
 
