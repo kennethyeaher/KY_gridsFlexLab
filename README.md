@@ -1,5 +1,8 @@
 # Design Notes
 
+![HTML5](docs/readme/badges/html5-E34F26.svg)
+![CSS](docs/readme/badges/css-663399.svg)
+
 INST630 Homework 2: Grids and Flex.
 
 A static feed of three short notes about this page's layout, built with
@@ -24,6 +27,12 @@ Desktop browser capture of the actual page.
 ## My contribution
 
 I adapted the course component into a responsive three card feed, wrote the layout notes, and added the expandable layout guide. The course reference and remaining checks are documented below.
+
+## Review the layout
+
+Start with the three cards at desktop width, then narrow the window to see them stack. Open **Explore the layout** to compare the page regions with the groups inside a card. The guide makes the distinction between Grid for page structure and Flexbox for smaller groups visible in the page itself.
+
+This is a static layout study. The sample engagement counts illustrate hierarchy and do not represent a functioning social feed.
 
 ## What it demonstrates
 
