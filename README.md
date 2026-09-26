@@ -1,3 +1,39 @@
+<p align="center">
+  <img src="docs/readme/banner.svg" alt="Design Notes. Grid for the page. Flexbox for the details." width="100%">
+</p>
+
+<p align="center">
+  <img alt="HTML + CSS" src="https://img.shields.io/badge/HTML%20%2B%20CSS-244D40?style=flat-square">
+  <a href="https://kennethyeaher.github.io/KY_gridsFlexLab/"><img alt="Open live site" src="https://img.shields.io/badge/demo-live-244D40?style=flat-square"></a>
+</p>
+
+<p align="center"><a href="https://kennethyeaher.github.io/KY_gridsFlexLab/">Live site ↗</a> &nbsp; · &nbsp; <a href="index.html">HTML structure</a> &nbsp; · &nbsp; <a href="css/style.css">Layout styles</a></p>
+
+## Overview
+
+A static feed of three design notes built for INST630. The project turns a course Figma component into nested HTML groups, then uses CSS Grid and Flexbox to move from a desktop row to a stacked mobile layout.
+
+## At a glance
+
+| Area | What to look for |
+| --- | --- |
+| **Page structure** | Named Grid regions organize the header, main content, and footer. |
+| **Component structure** | Nested Flexbox groups organize each card’s content, activity, and comments. |
+| **Inspectable design** | An expandable layout guide makes the page and component hierarchy visible. |
+
+## Start here
+
+Open `index.html` in a browser. Google Fonts and Font Awesome require a network connection; no local build is needed.
+
+## Scope
+
+Comments, likes, and saves are static examples. They are not measured engagement or working social features.
+
+---
+
+<details>
+<summary><strong>Layout decisions, course requirements, and verification limits</strong></summary>
+
 # Design Notes
 
 INST630 Homework 2: Grids and Flex.
@@ -194,3 +230,5 @@ Visual review covers the supplied desktop and mobile screenshots and the
 main Figma component groups. It is not a complete accessibility audit or a
 test of every screen size and interaction. The remaining checks are listed
 above.
+
+</details>
