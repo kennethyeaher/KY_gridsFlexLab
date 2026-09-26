@@ -16,6 +16,15 @@ Live page: [Design Notes](https://kennethyeaher.github.io/KY_gridsFlexLab/)
 
 Inspectable source: [HTML, CSS, and project documentation](https://github.com/kennethyeaher/KY_gridsFlexLab)
 
+
+![Design Notes desktop page with three cards arranged in a row.](docs/readme/preview.png)
+
+Desktop browser capture of the actual page.
+
+## My contribution
+
+I adapted the course component into a responsive three card feed, wrote the layout notes, and added the expandable layout guide. The course reference and remaining checks are documented below.
+
 ## What it demonstrates
 
 Grid handles the page. `.page-layout` on `body` defines three named areas
@@ -194,3 +203,14 @@ Visual review covers the supplied desktop and mobile screenshots and the
 main Figma component groups. It is not a complete accessibility audit or a
 test of every screen size and interaction. The remaining checks are listed
 above.
+
+---
+
+## Author
+
+**Kenneth Yeaher**  
+MS in Human Computer Interaction  
+University of Maryland, College Park  
+[![LinkedIn: Kenneth Yeaher](https://img.shields.io/badge/LinkedIn-Kenneth_Yeaher-0A66C2?style=flat)](https://www.linkedin.com/in/kennethyeaher/)
+
+`CSS Grid` · `Flexbox` · `Responsive Layout`
