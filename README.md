@@ -1,28 +1,52 @@
-# Design Notes
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="Design Notes. One card component, three across on wide screens and one column at 64rem and narrower. CSS Grid for the page, Flexbox inside the cards." width="100%">
+</p>
 
-![HTML5](docs/readme/badges/html5-E34F26.svg)
-![CSS](docs/readme/badges/css-663399.svg)
+<p align="center">
+  <strong>INST630 Homework 2: Grids and Flex.</strong><br>
+  A static feed of three short notes about this page's layout, built with plain HTML and CSS. The cards adapt the documented <code>component-compex</code> structure from the course Figma file. They share a row on screens wider than 64rem and stack into a column at 64rem and narrower.
+</p>
 
-INST630 Homework 2: Grids and Flex.
+<p align="center">
+  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
+  <img alt="CSS" src="https://img.shields.io/badge/CSS-663399?style=flat-square&logo=css&logoColor=white">
+  <a href="https://kennethyeaher.github.io/KY_gridsFlexLab/"><img alt="Live page" src="https://img.shields.io/badge/demo-live-1f7a5c?style=flat-square"></a>
+  <img alt="No JavaScript" src="https://img.shields.io/badge/javascript-none-1f7a5c?style=flat-square">
+</p>
 
-A static feed of three short notes about this page's layout, built with
-plain HTML and CSS. The cards adapt the documented `component-compex`
-structure from the course Figma file. They share a row on screens wider
-than 64rem and stack into a column at 64rem and narrower.
+<p align="center">
+  <a href="https://kennethyeaher.github.io/KY_gridsFlexLab/"><strong>Open the live page ↗</strong></a> &nbsp; · &nbsp;
+  <a href="#layout-guide">Layout guide</a> &nbsp; · &nbsp;
+  <a href="#what-it-demonstrates">What it demonstrates</a> &nbsp; · &nbsp;
+  <a href="#homework-requirement-coverage">Requirements</a> &nbsp; · &nbsp;
+  <a href="#known-limitations">Known limitations</a>
+</p>
+
+---
+
+<img src="docs/assets/desktop-1440.png" alt="Design Notes at 1440px wide. A white header with the Design Notes wordmark and Feed, About, and View source links sits above the heading Notes on layout and reading, a short introduction, and three bordered cards side by side, each with a placeholder image, title, date, author, post text, an engagement row, and sample comments." width="100%">
+
+<details>
+<summary><strong>See the stacked layout at 64rem and narrower</strong></summary>
+<br>
+
+<table>
+  <tr>
+    <th>1024px, the 64rem breakpoint</th>
+    <th>375px phone</th>
+  </tr>
+  <tr>
+    <td width="62%"><img src="docs/assets/stacked-1024.png" alt="The feed at 1024px wide. The three cards stack in one column, each spanning the content width, with the engagement row spread across the card and three sample comments below." width="100%"></td>
+    <td width="38%"><img src="docs/assets/mobile-375.png" alt="The page at 375px wide. The header links wrap below the wordmark, the heading takes two lines, and the first card fills the screen width with its image beside the title and post text." width="100%"></td>
+  </tr>
+</table>
+
+</details>
 
 The notes cover the shared page frame, the groups inside each card, and
 the use of spacing. Comments are example discussion prompts from named
 demo readers. Likes and saves are illustrative counts. None of these
 counts represent measured use of the project.
-
-Live page: [Design Notes](https://kennethyeaher.github.io/KY_gridsFlexLab/)
-
-Inspectable source: [HTML, CSS, and project documentation](https://github.com/kennethyeaher/KY_gridsFlexLab)
-
-
-![Design Notes desktop page with three cards arranged in a row.](docs/readme/preview.png)
-
-Desktop browser capture of the actual page.
 
 ## My contribution
 
@@ -33,6 +57,18 @@ I adapted the course component into a responsive three card feed, wrote the layo
 Start with the three cards at desktop width, then narrow the window to see them stack. Open **Explore the layout** to compare the page regions with the groups inside a card. The guide makes the distinction between Grid for page structure and Flexbox for smaller groups visible in the page itself.
 
 This is a static layout study. The sample engagement counts illustrate hierarchy and do not represent a functioning social feed.
+
+## Layout guide
+
+The page carries its own explainer. **Explore the layout** opens two schematics, one for the Grid regions of the page and one for the Flexbox groups inside a card.
+
+<img src="docs/assets/layout-guide.png" alt="The opened Explore the layout panel at desktop width. On the left, Page regions: Grid shows a header bar, a Main box holding Introduction, a Feed with three cards in a row, and About, then a footer. On the right, Card groups: Flexbox shows an image beside a title, date, author, and post text group, an engagement row of comments, likes, and saves, and a comment section with three comments." width="100%">
+
+<details>
+<summary><strong>See the guide at 375px</strong></summary>
+<br>
+<p align="center"><img src="docs/assets/layout-guide-375.png" alt="The layout guide at 375px wide. The Grid schematic stacks its three cards into a column to match the feed, and the Flexbox schematic sits below it." width="320"></p>
+</details>
 
 ## What it demonstrates
 
@@ -106,6 +142,8 @@ original text, its own font and color choices, and responsive wrapping. The
 screenshot does not establish exact dimensions or a detailed comparison of
 every layer.
 
+A headless Chromium check on October 3, 2026 against the published page found the three cards in one row at 1025px and stacked in one column at 1024px, with no horizontal scrolling at 320, 375, 768, 1024, 1025, or 1440px. It measured card positions and page width only; it did not test zoom, keyboard use, or other browsers.
+
 GitHub Pages successfully deployed the page reviewed on mobile from the
 `main` branch and root folder. Both sides of the breakpoint, zoom behavior,
 keyboard and screen-reader use, link activation, and detailed reference
@@ -118,27 +156,24 @@ checks. There are no measured usability or performance results to report.
 | --- | --- | --- |
 | Use a component from the course Figma file | The Figma screenshot identifies `component-compex` and shows the main groups used in each card. | Compare the detailed layers and starter material. |
 | Build nested boxes and preserve their visual relationships | The HTML groups the image, description, metadata, engagement row, and comments; the Figma screenshot supports these main relationships. | Confirm detailed reference fidelity at the intended sizes. |
-| Repeat the component three times in a large-screen row and small-screen column | Three article elements are present, the desktop row is visible, and CSS switches to a column at 64rem. A mobile card fits the screen in the supplied view. | Review all three cards on mobile and test both breakpoint boundaries. |
+| Repeat the component three times in a large-screen row and small-screen column | Three article elements are present, the desktop row is visible, and CSS switches to a column at 64rem. A mobile card fits the screen in the supplied view. A headless Chromium check found the row at 1025px and the column at 1024px. | Review all three cards on mobile and repeat the boundary check in other browsers. |
 | Include a header and footer organized with CSS Grid | Both are assigned named grid areas. The header appears in desktop and mobile screenshots, and the actual footer appears on mobile. | Review the full desktop footer and widths not covered by the screenshots. |
 | Demonstrate Flexbox, Grid, nesting, and the box model | The source and layout guide identify flex groups, grid regions, borders, padding, margins, and gaps. | Inspect the applied styles in browser developer tools. |
 | Include external resources | The HTML links Google Fonts and Font Awesome; icons appear in desktop and mobile screenshots. | Check the font and icon requests in the browser. |
 | Test in a browser and submit an inspectable live link | Desktop local and published mobile rendering have screenshot evidence. GitHub Pages deployment succeeded, and the live page links to the source repository. | Finish link, keyboard, zoom, and remaining responsive checks. |
 
-## Project structure
+## Known limitations
 
-```
-KY_gridsFlexLab/
-  README.md
-  .gitignore
-  index.html        page, three cards, and expandable layout guide
-  css/
-    style.css       shared styles, grids, flex groups, and breakpoint
-```
+The image is a placeholder box with an icon rather than a real photo, since
+the Figma component uses a placeholder too. Colors and fonts are my own
+choices, not pulled from the Figma file. This is a static demonstration;
+comments, likes, and saves have no interactive controls or persistence.
+Visual review covers the supplied desktop and mobile screenshots and the
+main Figma component groups. It is not a complete accessibility audit or a
+test of every screen size and interaction. The remaining checks are listed
+above.
 
-There is no build step and no JavaScript. Feed and About link to sections
-on the page. View source opens this repository; the About section also
-links to the course Figma reference. Each card contains three comments,
-and its comment count matches those visible examples.
+---
 
 ## Run it locally
 
@@ -146,7 +181,9 @@ Clone the repo and open `index.html` in a browser. The fonts and icons load
 from their CDNs, so an internet connection is needed for them to appear.
 Without one the layout still works with the system font fallbacks.
 
-## Responsive and keyboard checks
+<details>
+<summary><strong>Responsive and keyboard checks</strong></summary>
+<br>
 
 Use the browser's responsive tools at 320px, 390px, 768px, 1024px, 1025px,
 and 1440px. With the default 16px browser font size, 64rem equals 1024px:
@@ -169,18 +206,31 @@ minimum height of 2.75rem. These changes support readability and keyboard
 use; they do not establish a complete accessibility audit. The checks above
 are a manual verification procedure, not a record of completed browser tests.
 
-## Publish with GitHub Pages
+</details>
 
-Pages is already configured for this repository: deploy from the `main`
-branch and `/ (root)` folder.
+<details>
+<summary><strong>Project structure</strong></summary>
+<br>
 
-After reviewing and committing a change, run `git push origin main`.
-GitHub's `pages build and deployment` workflow publishes it. Wait for that
-workflow to succeed, then refresh the
-[live page](https://kennethyeaher.github.io/KY_gridsFlexLab/) and check the
-changed content. No local build step is required.
+```
+KY_gridsFlexLab/
+  README.md
+  .gitignore
+  index.html        page, three cards, and expandable layout guide
+  css/
+    style.css       shared styles, grids, flex groups, and breakpoint
+```
 
-## Component reference
+There is no build step and no JavaScript. Feed and About link to sections
+on the page. View source opens this repository; the About section also
+links to the course Figma reference. Each card contains three comments,
+and its comment count matches those visible examples.
+
+</details>
+
+<details>
+<summary><strong>Component reference</strong></summary>
+<br>
 
 Source: INST630 Figma Demos (2026, Kunesh), Components page,
 `component-compex`. Layer tree recreated in the HTML:
@@ -202,16 +252,22 @@ component-compex
       text
 ```
 
-## Known limitations
+</details>
 
-The image is a placeholder box with an icon rather than a real photo, since
-the Figma component uses a placeholder too. Colors and fonts are my own
-choices, not pulled from the Figma file. This is a static demonstration;
-comments, likes, and saves have no interactive controls or persistence.
-Visual review covers the supplied desktop and mobile screenshots and the
-main Figma component groups. It is not a complete accessibility audit or a
-test of every screen size and interaction. The remaining checks are listed
-above.
+<details>
+<summary><strong>Publish with GitHub Pages</strong></summary>
+<br>
+
+Pages is already configured for this repository: deploy from the `main`
+branch and `/ (root)` folder.
+
+After reviewing and committing a change, run `git push origin main`.
+GitHub's `pages build and deployment` workflow publishes it. Wait for that
+workflow to succeed, then refresh the
+[live page](https://kennethyeaher.github.io/KY_gridsFlexLab/) and check the
+changed content. No local build step is required.
+
+</details>
 
 ---
 
